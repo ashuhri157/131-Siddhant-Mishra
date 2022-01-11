@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="persondetails"></p>
+    <p id="Alldetails"></p>
+    <script>
+        let carname="Xuv";
+const person={
+    firstname:"Siddhant",
+    vehname:"bike",
+    city:"Bhopal",
+    fulldetails:function(){
+        return this.firstname + this.vehname + this.city + carname;
+    }
+
+}
+document.getElementById("persondetails").innerHTML =person.firstname + " "+ person.vehname + " "+ person.city + carname;
+document.getElementById("Alldetails").ineerHTML =person.fulldetails;
+    </script>
+</body>
+</html>

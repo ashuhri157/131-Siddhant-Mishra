@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<title>News Updates</title>  
+<style>  
+.thNews {  
+background-color: #444;  
+color: white;  
+}  
+.thNews, .tdNews {  
+border: 1px solid #444;  
+padding: 15px;  
+text-align: left;  
+}  
+</style>  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
+</head>  
+<body>  
+<script type="text/javascript">  
+$(function() {  
+var params = {  
+"Key": "<Parameter value";  
+// Request parameters  
+};  
+// provide the Web Api url (must) and include the Params (parameters) if it is required.  
+$.ajax({  
+url: "<Web API URL>" + $.param(params),  
+type: "GET",  
+contentType: "application/json; charset=utf-8",  
+dataType: "json",  
+cache: false,  
+})  
+.done(function(data) {  
+//alert("success");  
+var trHTML = '';  
+$.each(data.News, function (i, item) {  
+if (data.News[i].State != null){  
+trHTML += '<tr class="trNews"><td class="tdNews">' + data.News[i].State + '</td><td class="tdNews">' + data.News[i].Header + '</td><td class="tdNews">' + data.News[i].NewsDesc + '</td></tr>';  
+}  
+});  
+$('#divIncidents').append(trHTML);//To add the table row to table  
+})  
+.fail(function() {  
+$('#divErr').append("error");// To display the error in div  
+});  
+});  
+</script>  
+<div><strong><span>News Updates</span></strong>  
+<table id="divIncidents">  
+<tr class="trNews">  
+<th class="thNews">State</th>  
+<th class="thNews">Header</th>  
+<th class="thNews">News Description</th>  
+</tr>  
+</table>  
+</div>  
+<div id="divErr"></div>  
+</body>  
+</html>
